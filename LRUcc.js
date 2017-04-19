@@ -95,6 +95,7 @@ var lru  = new LRUCache(3);
 lru.put("a",2);
 lru.put("b",3);
 lru.put("c",4);
+lru.put("d",5);
 
 var a = lru.keyMap;
 var b = lru.head;
