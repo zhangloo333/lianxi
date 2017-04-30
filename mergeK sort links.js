@@ -38,8 +38,9 @@ var mergeTwoLints = function (l1,l2) {
 
 var mergeKlists = function (lists) {
     var i;
+
     while(lists.length >= 2) {
-        var temp = [];
+        var temp = [];//这个变量一定要在 while里面如果在外变话，每次进入temp，不会重新clear while的值
         for(i = 0; i < lists.length-1; i+=2) {
             temp.push(mergeTwoLints(lists[i],lists[i+1]));
         }

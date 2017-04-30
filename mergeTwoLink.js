@@ -33,3 +33,20 @@ var mergeTwoLinks = function (l1,l2) {
     return dunmy.next || null;
 
 }
+
+var mergeKSort = function (lists) {
+
+    var temp = [];
+    var i;
+    while(lists.length >=2){
+        for(i=0; i<lists.length-1; i+=2) {
+            temp.push(mergeTwoLinks(lists[i],lists[i+1]));
+        }
+        if(i == lists.length-1) {
+            temp.push(lists[lists.length-1]);
+        }
+        lists = temp;
+    }
+
+    return temp[0] ||[];
+}
