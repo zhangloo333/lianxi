@@ -28,3 +28,9 @@ function insert(intervals, newInterval) {
     result.push(newInterval);
     return result;
 }
+
+var Buildstar = function (key,num) {
+    return key +" "+new Array(num).fill('*').join("");
+}
+
+console.log(Buildstar(4));
