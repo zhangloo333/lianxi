@@ -14,6 +14,7 @@ var fibonacci = function () {
         return result;
     };
 
-
     return fib;
 }();
+
+console.log(fibonacci(3))

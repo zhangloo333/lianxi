@@ -20,8 +20,11 @@ var multi=function () {
     return total;
 };
 
-var sum = currying(multi);
+var converter = function(input,factor, symbol){
+    return input * factor + symbol;
+}
 
-sum(100,200)(300);
-sum(400);
+var sum = currying(converter);
+
+sum(100,200,2);
 console.log(sum());
