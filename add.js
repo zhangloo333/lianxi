@@ -17,4 +17,9 @@
             return Array.prototype.reduce.call(arguments, function (total, number) {
                 return total + number;
             }, 0);
-        }
+        })
+
+
+ var c = curry();
+ add(2)(2)(1);
+console.log(add());
