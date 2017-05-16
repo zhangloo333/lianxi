@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .overlay {
+            position: fixed;
+            width: 300px;
+            height: 200px;
+            border: 1px solid #F00;
+            background: #F0F8FF;
+        }
+
+        .overlay article {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -200px 0 0 -200px;
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <div class="overlay article">aaa</div>
+    </div>
+</body>
+<script>
+    var HttpClient = function() {
+        this.get = function(aUrl, aCallback) {
+            var anHttpRequest = new XMLHttpRequest();
+            anHttpRequest.onreadystatechange = function() {
+                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                    aCallback(anHttpRequest.responseText);
+            }
+
+            anHttpRequest.open( "GET", aUrl, true );
+            anHttpRequest.send( null );
+        }
+    }
+
+    var client = new HttpClient();
+    client.get('http://reduxblog.herokuapp.com/api/posts', function(response) {
+        // do something with response
+        console.log(response);
+    });
+</script>
+</html>
