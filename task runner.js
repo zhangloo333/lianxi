@@ -28,37 +28,6 @@ class Runner{
 
     run() {
         var self = this;
-
-        // if (this.queue.length > 0) {
-        //         // var task = self.queue.shift();
-        //     //     // var done = function () {
-        //     //     //     console.log("excute content");
-        //     //     //     self.run();
-        //     //     // }
-        //     //     // task.call(this, done);
-        //     //
-        //     // }, 0);
-        //     // task.call();
-        //     // setTimeout(self.run(),0);
-        //
-        //     // setTimeout(function () {
-        //     //     var task = self.queue.shift();
-        //     //     done(self.run);
-        //     //     task.call(this,done);
-        //     // },0)
-        // }
-
-    //  // var self = this;
-        // if(this.queue.length > 0) {
-        //     setTimeout(function () {
-        //         var task = self.queue.shift();
-        //         var done = function () {
-        //             console.log("excute content");
-        //             self.run();
-        //         }
-        //         task.call(this,done);
-        //     },0);
-        var self = this;
         if(self.queue.length >0) {
             var task = self.queue.shift();
             var done = function () {

@@ -10,7 +10,7 @@ function slow() {
     //         console.log("Error 417");
     //     }
     // },1000);
-    console.log("Error 417");
+   setTimeout(function(){console.log("Error 417")},1000);
 
 }
 
@@ -31,14 +31,14 @@ function exec(fn){
     }
 
     function f1() {
-        setTimeout(function () {
             fn.call();
-            arguments.callee;
-        },0);
-    }
 
+           arguments.callee;
+    }
     f1()
     return this;
+
+
 }
 
 exec(slow).done(function () {
