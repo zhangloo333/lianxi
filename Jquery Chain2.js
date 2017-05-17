@@ -8,7 +8,7 @@ function exec(fn){
     exec.done = function(cb){
         doneCallback = cb;
         if(fnEnded && !_error){
-            cb(_data);
+            cb();
         }
         return exec;
     };
@@ -16,7 +16,7 @@ function exec(fn){
     exec.fail = function(cb){
         failCallback = cb;
         if(fnEnded &&_error){
-            cb(_error);
+            cb();
         }
         return exec;
     };
@@ -24,6 +24,7 @@ function exec(fn){
     fnCallback = function(error, data){
         _error = error;
         _data= data;
+
         if(failCallback && error){
             failCallback(error);
         }else if(doneCallback){
@@ -37,19 +38,16 @@ function exec(fn){
     return exec;
 }
 
-function slow(callback) {
+function slow() {
     setTimeout(function(){
-        if (Math.random() > 0.5) {
-            return callback("Error 417",null)
-        }
-        callback(null, {id:123})
+        console.log("401")
     },500);
 }
 
-exec(slow).done(function(data){
-    console.log(data);
-}).fail(function(err){
-    console.log("Error: " + err);
+exec(slow).done(function(){
+    console.log(1);
+}).fail(function(){
+    console.log("3");
 });
 
 
