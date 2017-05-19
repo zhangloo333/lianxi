@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="doubleClick">
+        <button class="double">double</button>
+    </div>
+</body>
+<script>
+    var target = document.getElementById('doubleClick');
+    target.addEventListener("click", function (e) {
+        var btn = document.createElement("button");
+        btn.setAttribute("class","double");
+        btn.innerText = 'double';
+
+        var btn1 = document.createElement("button");
+        btn1.setAttribute("class","double");
+        btn1.innerText = 'double';
+
+
+        target.appendChild(btn);
+        target.appendChild(btn1);
+
+        target.removeChild(e.target);
+    })
+</script>
+</html>
