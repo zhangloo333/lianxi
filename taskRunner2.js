@@ -4,18 +4,27 @@
 // function exampleTask(done) {
 //     setTimeout(done, 2000);
 // }
-
+"use strict";
 function exampleTask(done) {
     setTimeout(done, 2000);
 
 }
 
-class Runner {
+var done = function (fn) {
+    console.log("excute content");
+    setTimeout(fn,0);
+    // self.run();
+    // fn.call();
+}
+
+class Runner{
     constructor(num){
         this.maxNum = num;
         this.counter = 0;
         this.queue = [];
+
     }
+
 
     push(callbackFn){
         if(this.queue.length <= this.maxNum){
@@ -23,29 +32,23 @@ class Runner {
         }
     }
 
-    run(){
-        // var self = this;
-        // if(this.queue.length > 0) {
-        //     setTimeout(function () {
-        //         var task = self.queue.shift();
-        //         var done = function () {
-        //             console.log("excute content");
-        //             self.run();
-        //         }
-        //         task.call(this,done);
-        //     },0);
-
+    run() {
         var self = this;
-            if(self.queue.length >0) {
+        done.bind(r,r.run);
+
+        if (this.queue.length > 0) {
+            setTimeout(function () {
                 var task = self.queue.shift();
-                var done = function () {
-                    console.log("excute content");
-                    self.run();
-                }
-                task(done);
-            }
+
+                task.call(self, done);
+
+            }, 0);
+
         }
+    }
 }
+
+
 
 var r = new Runner(3);
 r.push(exampleTask) // run
@@ -54,3 +57,4 @@ r.push(exampleTask) // run
 r.push(exampleTask) // wait
 r.push(exampleTask) // wait
 r.run();
+done.bind(r,r.run);
