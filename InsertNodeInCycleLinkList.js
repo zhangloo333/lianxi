@@ -3,8 +3,13 @@
  *
  * 这道题有三种情况：
  * 1 这个linkedlist 是空的，插入的node 就是这个新的node
- * 2 这个要插入的node 要小于sorted
+ * 2 这个要插入的node 要小于sorted linked 的head，我们遍历这个list 直到找到结尾，为止。
+ * 3 如果插入 node 在head 和 tail之间，我们需要遍历找到合适的位置，然后插入。
  *
+ * 遍历停止的调教 while(current != head) 找到这个list的结尾
+ *
+ * 找到合适的为止插入，while(current != head && current.next.val < insertNode.val)进行
+ * 迭代
  *
  */
 
