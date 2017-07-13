@@ -16,8 +16,7 @@ var hasCircle = function(node) {
 
         if(faster == slower) return true;
     }
-    return false;
-
+    return false
 
 }
 
