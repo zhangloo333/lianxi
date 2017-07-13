@@ -61,6 +61,19 @@ function findNonRepaeat(str) {
 
 }
 
+
+//利用indexOf() 第二个参数来查找，indexOf 的第二个参数，就是从后面如果有的情况下就返回
+function firstNonRepeatedCharacter(string) {
+    string = string.toLowerCase();
+    for (var i = 0; i < string.length; i++) {
+        var c = string.charAt(i);
+        if (string.indexOf(c) == i && string.indexOf(c, i + 1) == -1) {
+            return c;
+        }
+    }
+    return null;
+}
+
 var ex = "Salesforce is the best company to work for"
 // console.log(findRepeat(ex));
 console.log(findNonRepaeat(ex));
