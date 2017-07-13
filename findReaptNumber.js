@@ -1,6 +1,15 @@
 /**
  * Created by leizha on 7/13/17.
+ *
+ * 解题思路：
+ * 首先要把： string 都转换成小写字母；
+ *
+ * 先之一张表 统计一下有 多少个重复的，
+ * 然后遍历 string 找出那个第一次出现的重复的。
+ *
  */
+
+
 
 
 function findRepeat(str) {
