@@ -5,6 +5,7 @@
 
 var sumUp = function(){
     var temp = [].slice.call(arguments);
+    console.log(temp);
     var sum = 0
     for(var i = 0; i < arguments.length; i++) {
         arguments[i].map(x => sum+=x);
@@ -22,4 +23,7 @@ sumUp(a1,a2);
 var a = { b: {c: 4} , d: { e: {f: 1} } };
 var g = Object.assign({}, a);
 
+console.log(g.b = {c:5});
+var newOBJ = Object.assign({},)
 console.log(g);
+console.log(a);
