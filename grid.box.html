@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            min-width: 550px;
+        }
+        #container1{
+            height: 200px;
+            display: grid;
+            grid-template-columns:1fr 1fr 1fr 1fr;
+            grid-template-rows:1fr 1fr 1fr;
+            grid-template-areas:"one one two three" "four four two three" "five five five three";
+
+        }
+        .col1{
+            grid-area: one;
+            background-color: #FF0000;
+        }
+        .col2{
+            grid-area:two;
+            background-color: blanchedalmond;
+        }
+        .col3{
+            grid-area:three;
+            background-color: yellow;
+        }
+        .col4{
+            grid-area:four;
+            background-color: forestgreen;
+        }
+        .col5{
+            grid-area:five;
+            background-color: palevioletred;
+        }
+
+
+
+        #container{
+            height: 200px;
+            display: grid;
+            grid-template-columns:1fr 1fr 1fr 1fr;
+            grid-template-rows:1fr 1fr 1fr;
+            grid-template-areas:"one one two three" "four four two three" "five five five three";
+        }
+        .column-1{
+            grid-area:one;
+            background-color: #F8594C;
+        }
+        .column-2{
+            grid-area:two;
+            background-color: #FFA29B;
+        }
+        .column-3{
+            grid-area:three;
+            background-color: #318B98;
+        }
+        .column-4{
+            grid-area:four;
+            background-color: #E73123;
+        }
+        .column-5{
+            grid-area:five;
+            background-color: #ABE646;
+        }
+
+    </style>
+</head>
+<body>
+    <div id ="container1">
+        <div class="col1">one</div>
+        <div class="col2">two</div>
+        <div class="col3">three</div>
+        <div class="col4">four</div>
+        <div class="col5">five</div>
+    </div>
+
+    <div id="container">
+        <div class="column-1">one</div>
+        <div class="column-2">two</div>
+        <div class="column-3">three</div>
+        <div class="column-4">four</div>
+        <div class="column-5">five</div>
+    </div>
+
+    <div id="container2">
+        <style>
+            #container2{
+                display: grid;
+                background: yellow;
+                height: 300px;
+                grid-template-columns: 300px 300px 300px;
+                grid-template-rows:1fr;
+                grid-template-areas: "one two three";
+                grid-auto-columns: 60px;
+            }
+            .c1{
+                background-color: blue;
+                grid-area: one;
+            }
+            .c2{
+                background-color: red;
+                grid-area: two;
+            }
+            .c3{
+                background-color: green;
+                grid-area: three;
+            }
+            .c4{
+                background-color: pink;
+                grid-column: 6 / 7;
+                grid-row: 1 / 2;
+
+            }
+
+        </style>
+        <div class="c1">1</div>
+        <div class="c2">2</div>
+        <div class="c3">3</div>
+        <div class="c4">4</div>
+    </div>
+
+</body>
+</html>

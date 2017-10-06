@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+  #t{
+    width: 300px;
+    height:300px;
+    background: yellow;
+  }
+  </style>
+  <div>
+    <div id= "t"></div>
+    <button id = "btn">click</button>
+  </div>
+  <script type="text/javascript">
+    var tt = document.getElementById('btn');
+    tt.addEventListener('click',function(e){
+      // alert('click on');
+      console.log('event-id',e.target.id);
+      console.log('event-value',e.target.value);
+      console.log('event-style', e.target.style);
+      console.log('event-innerHTML', e.target.innerHTML);
+      console.log('event-innerText', e.target.innerText);
+      console.log('event-name', e.target.name);
+      console.log('event-title', e.target.title);
+    });
+    function clickt() {
+      alert('click on');
+      console.log(event);
+    }
+  </script>
+</body>
+</html>

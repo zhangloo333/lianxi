@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <script type="text/javascript">
+    function Animal() {
+      this.name = 'name';
+    }
+
+    class Animal2{
+      constructor(){
+        this.name = name;
+      }
+    }
+
+  // console.log(new Animal(),new Animal2(
+  // ))
+  /**
+    继承方式
+  */
+
+  // function Parent1() {
+  //   this.name = 'parent1';
+  // }
+  // Parent1.prototype.say = function(){};
+  // function Child1() {
+  //   Parent1.call(this);
+  //   this.type = 'child1';
+  // }
+  /**
+  * 借助原型链实现继承
+  */
+
+  function Parent2() {
+    this.name = 'Parent2';
+  }
+
+  function Child2(){
+    this.type = 'child2';
+  }
+
+  Child2.prototype = new Parent2();
+
+  console.log(new Child2().__proto__);
+  // new Child2().__proto__ = child2.prototype 这个对象 ->指向 child2
+
+  /**
+  组合方式
+  面向对象继承的一般方法；
+      1.父类在 子函数里面调用；
+      2.原型链(ˇˍˇ) 想～链接；就行。
+
+      优化；
+      1. child.prototype = parent.prototype;
+      2. child.prototype = Object.create(parent.prototype);
+         child.prtotype.constructor = child5
+  */
+
+  function Parent3() {
+    this.name = 'Parent3';
+    this.play = [1,2,3];
+  }
+  function Child3() {
+    Parent3.call(this);
+    this.type = 'Child3';
+  }
+  Child3.prototype = new Parent3();
+  var s1 = new Child3();
+  var s2 = new Child3();
+
+  s1.play.push(4);
+  console.log(s1.play, s2.play);
+
+
+/**
+
+*/
+window.addEventListener('error', function (e) {
+  console.log('捕获'，e)；
+},true);
+
+(new Image()).src = 'http:上报的地址'；
+
+  </script>
+</body>
+</html>

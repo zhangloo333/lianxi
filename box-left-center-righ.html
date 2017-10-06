@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/48938155eb24b4ccdde09426066869504c6dab3c/dist/css/bootstrap.min.css">
+<style media="screen">
+ *{
+       padding:0;
+       margin:0;
+     }
+</style>
+  <style media="screen">
+
+    #o1{
+      background-color: red;
+      border: 1px solid red;
+    }
+    #o2{
+      background-color: yellow;
+      border: 1px solid yellow;
+    }
+    #o3{
+      background: blue;
+    }
+    .row{
+      border: 1px solid green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div id= "o1" class="col-md-3">left</div>
+      <div id ="o2" class="col-md-6">center</div>
+      <div id = "o3" class="col-md-3">right</di>
+    </div>
+  </div>
+
+  <!-- 用float来做 -->
+  <section>
+    <style media="screen">
+      .left{
+        width: 300px;
+        background: red;
+        float: left;
+      }
+      .right{
+        width: 300px;
+        background: green;
+        float: right;
+      }
+      .center{
+        background: yellow;
+        margin-left: 300px;
+        margin-right: 300px;
+      }
+
+    </style>
+    <div class= "left">1</div>
+    <div class= "right">3</div>
+    <div class= "center">2</div>
+  </section>
+</body>
+</html>
