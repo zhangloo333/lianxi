@@ -1,0 +1,37 @@
+.default {
+  text-align: center;
+  border: 2px solid #27ae60;
+}
+header {
+  text-align: center;
+  border: 2px solid #27ae60;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+}
+header h1 {
+  color: #27ae60;
+  font-size: 48px;
+}
+.container {
+  width: 960px;
+  margin: 10px auto;
+}
+.container a {
+  text-decoration: none;
+  color: #27ae60;
+}
+.container a:hover {
+  color: #145b32;
+}
+footer {
+  text-align: center;
+  border: 2px solid #27ae60;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+}

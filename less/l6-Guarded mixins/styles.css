@@ -1,0 +1,19 @@
+.box {
+  margin: 20px 0;
+  height: 100px;
+  padding: 20px;
+}
+.box-1 {
+  margin: 20px 0;
+  height: 100px;
+  padding: 20px;
+  color: #000;
+  background: #b3eecc;
+}
+.box-2 {
+  margin: 20px 0;
+  height: 100px;
+  padding: 20px;
+  color: #fff;
+  background: #000;
+}

@@ -1,0 +1,44 @@
+//color variables
+@wisteria: #8e44ad;                          // hex color value
+@nephretis: #27ae60;                         // hex color value
+@nephretis_light: lighten(@nephretis, 40%);
+@midnight_blue: #2c3e50;                     // hex color value
+@midnight_blue_light: lighten(@midnight_blue, 40%);
+
+@dark: #000;                                // named color value
+@light: #fff;                                // named color value
+
+//change the value of this variable to change the template color
+@template_color: @midnight_blue;
+
+.set-text-color (@bg-color) when (lightness(@bg-color) >= 50%) {
+  color: @dark;
+  background: @bg-color;
+}
+
+.set-text-color (@bg-color) when (lightness(@bg-color) < 50%) {
+  color: @light;
+  background: @bg-color;
+}
+
+//mixins
+.box {
+  margin: 20px 0;
+  height: 100px;
+  padding: 20px;
+}
+
+.box-1 {
+  .box;
+  //.set-text-color(lighten(@template_color,50%));
+  .set-text-color(@nephretis_light);
+  //.set-text-color(@template_color);
+  //color: @light;
+  //background: @dark;
+}
+
+.box-2 {
+  .box;
+  color: @light;
+  background: @dark;
+}

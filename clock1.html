@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<header>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #clock {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            list-style: none;
+            /*background: yellow;*/
+
+        }
+        #sec #hour #min {
+            position: absolute;
+            width: 20px;
+            height:20px;
+            top: 0px;
+            left: 285px;
+        }
+        #sec {
+            background: red;
+            z-index: 2;
+        }
+
+        #min{
+            background: blue;
+            z-index:1;
+        }
+
+        #hour{
+            background: green;
+        }
+    </style>
+
+
+</header>
+<body >
+<ul id = "clock">
+    <li id = "sec">sec</li>
+    <li id = "hour">hour</li>
+    <li id = "min">hour</li>
+</ul>
+<script>
+    (function () {
+        setInterval(setSeconds, 1000);
+        setInterval(setMinutes, 1000);
+        setInterval(setHour, 1000);
+    })()
+
+
+function setSeconds() {
+    var second = new Date().getSeconds();
+    var sangle = second * 6;
+    var roates = "rotate(" + sangle + "deg)";
+    document.getElementById("sec").style.setProperty("transform",roates);
+}
+
+function setMinutes() {
+    var minute = new Date().getMinutes();
+    var mangle = minute * 6;
+    var roatem = "rotate(" + mangle + "deg)";
+    document.getElementById("min").style.setProperty("transform",roatem);
+}
+
+function setHour(){
+    var hours = new Date().getHours() % 12;
+    var hangle = hours * 30;
+    var roateh = "rotate(" + hangle + "deg)";
+    document.getElementById("hour").style.setProperty("transform",roateh);
+}
+
+</script>
+</body>
+</html>

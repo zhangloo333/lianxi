@@ -1,0 +1,68 @@
+/*
+ * LESS Variables are defined with an @ character
+ * and can have different kinds of data types:
+ *  color, string, boolean, multi-value
+ */
+.commonRules {
+  border: 2px solid #8e44ad;
+  text-align: center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+}
+.clearfix {
+  clear: both;
+}
+header {
+  font-size: 48px;
+  background: #e4d0ed;
+  border: 2px solid #8e44ad;
+  text-align: center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+}
+header h1 {
+  color: #8e44ad;
+}
+header h1:after {
+  content: " - on Codepen";
+  color: #522764;
+}
+.container {
+  margin: 40px auto;
+  width: 960px;
+}
+.container #p1,
+.container #p2 {
+  padding: 0 25px;
+  width: 44.79166667%;
+  float: left;
+  text-align: justify;
+}
+.container #p1 a,
+.container #p2 a {
+  color: #8e44ad;
+  text-decoration: none;
+}
+.container #p1 a:hover,
+.container #p2 a:hover {
+  color: #522764;
+}
+footer {
+  border: 2px solid #8e44ad;
+  text-align: center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+  clear: both;
+}
+footer p {
+  color: #8e44ad;
+}

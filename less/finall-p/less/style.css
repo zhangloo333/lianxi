@@ -1,0 +1,131 @@
+body {
+  width: 100%;
+  *zoom: 1;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+.container-layout {
+  width: 80%;
+  margin: auto;
+}
+.right {
+  float: right;
+}
+.left {
+  float: left;
+}
+body {
+  margin: 0;
+}
+header {
+  padding: 40px 0 0 20px;
+  color: #d65548;
+  *zoom: 1;
+}
+header .container h1 {
+  display: inline;
+  float: left;
+  width: 47.91666667%;
+  margin: 0 1.04166667%;
+}
+header .container nav {
+  display: inline;
+  float: left;
+  width: 47.91666667%;
+  margin: 0 1.04166667%;
+}
+header .container nav ul {
+  padding-left: 0;
+}
+header .container nav ul li {
+  display: inline-block;
+  margin: 0 30px;
+  font-size: 21px;
+}
+header .container nav ul li:first-child {
+  margin-left: 0;
+}
+header:before,
+header:after {
+  content: "";
+  display: table;
+}
+header:after {
+  clear: both;
+}
+#main {
+  padding-top: 50px;
+  color: #333;
+  *zoom: 1;
+}
+#main .container aside {
+  display: inline;
+  float: left;
+  width: 47.91666667%;
+  margin: 0 1.04166667%;
+  color: #333;
+}
+#main .container aside img {
+  border-top: solid 1px #d65548;
+  border-left: solid 1px #d65548;
+  border-right: solid 1px #d65548;
+  border-bottom: solid 1px #d65548;
+  -webkit-border-top-right-radius: 50%;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topright: 50%;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-border-radius: 50%;
+  -o-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+}
+#main .container article {
+  display: inline;
+  float: left;
+  width: 47.91666667%;
+  margin: 0 1.04166667%;
+}
+#main:before,
+#main:after {
+  content: "";
+  display: table;
+}
+#main:after {
+  clear: both;
+}
+footer .container {
+  margin-left: 17.70833333%;
+}
+footer .container ul {
+  display: inline;
+  float: left;
+  width: 22.91666667%;
+  margin: 0 1.04166667%;
+}

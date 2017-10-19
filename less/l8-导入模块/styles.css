@@ -1,0 +1,38 @@
+/*
+ * LESS Variables are defined with an @ character
+ * and can have different kinds of data types:
+ *  color, string, boolean, multi-value
+ */
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css);
+.default {
+  text-align: center;
+  color: #2c3e50;
+  margin: 15px 0;
+  border: 1px solid #2c3e50;
+}
+.border {
+  border: 1px solid #2c3e50;
+}
+.container {
+  width: 90%;
+  margin: 15px auto;
+}
+.container a {
+  background: #2c3e50;
+}
+.container a:hover {
+  background: #1a242f;
+}
+header {
+  text-align: center;
+  color: #2c3e50;
+  margin: 15px 0;
+  border: 1px solid #2c3e50;
+  background: #8aa4be;
+}
+footer {
+  text-align: center;
+  color: #2c3e50;
+  margin: 15px 0;
+  border: 1px solid #2c3e50;
+}

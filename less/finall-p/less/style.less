@@ -1,0 +1,79 @@
+//semantic.gs
+@import "_components/grid.less";
+
+//http://lesselements.com
+@import "_components/elements.less"; 
+
+//customs
+@import "_components/variables.less";
+@import "_components/mixins.less";
+
+@total-width:100%;
+
+body {
+ margin: 0;
+}
+
+header {
+	padding: @padding+30 0 0 @padding+10;
+	color: @template-color;
+	.container {
+		h1 {
+			.column(6);
+		}
+		nav {
+			.column(6);
+			ul{
+				padding-left:0;
+
+				li{
+					display: inline-block;
+					margin:0 @margin+20;
+					font-size: @fontSize*1.5;
+					&:first-child {
+						margin-left:0;
+					}
+				}
+			}
+		}
+	}
+	.clearfix();
+}
+
+#main {
+
+	padding-top: 50px;
+	color:@dark;
+	
+	.container {
+
+    aside{
+		.column(6);
+		color:@dark;
+
+		//.right;
+		img {
+			.bordered(@template-color,@template-color,@template-color,@template-color);
+			.border-radius(50%);
+			.drop-shadow(10px,10px,15px,0.5);
+		}
+	}
+
+		article {
+			.column(6);
+
+		}
+	}
+	.clearfix();
+}
+
+footer {
+    
+	.container {
+		.push(2);
+	 
+	  ul {
+	      .column(3);
+		 }
+	 }
+}

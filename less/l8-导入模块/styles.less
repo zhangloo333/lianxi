@@ -1,0 +1,66 @@
+/*
+ * LESS Variables are defined with an @ character
+ * and can have different kinds of data types:
+ *  color, string, boolean, multi-value
+ */
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css);
+
+//color variables
+@wisteria: #8e44ad;                          // hex color value
+@nephretis: #27ae60;                         // hex color value
+@nephretis_light: lighten(@nephretis, 40%);
+@midnight_blue: #2c3e50;                     // hex color value
+@midnight_blue_light: lighten(@midnight_blue, 40%);
+
+@dark: #000;                                // named color value
+@light: #fff;                                // named color value
+
+//layoue variables
+@fontSize: 24px;                             // numeric value
+@border: 2px solid @dark;                   // multi-value variable
+@padding: 15px;                             // one-value variable
+@margin: 15px;                             // one-value variable
+
+//change the value of this variable to change the template color
+@template_color: @midnight_blue;
+
+.default {
+  text-align:center;
+  color:@template_color;
+  margin: @margin 0;
+  .border;
+}
+
+.border {
+  border: 1px solid @template_color;
+}
+.set-text-color (@bg-color) when (lightness(@bg-color) >= 50%) {
+  color: darken(@bg-color, 45%);
+  background: @bg-color;
+  border: 3px solid darken(@bg-color, 45%);
+}
+
+.set-text-color (@bg-color) when (lightness(@bg-color) < 50%) {
+  color: @light;
+  background: @bg-color;
+  border: 3px solid lighten(@bg-color, 45%);
+}
+
+.container {
+  width: 90%;
+  margin: @margin auto;
+  a {
+    background: @template_color;
+      &:hover{
+        background: darken(@template_color,10%);
+      }
+  }
+}
+
+header {
+  .default;
+  background: lighten(@template_color, 40%);
+}
+footer {
+  .default;
+}

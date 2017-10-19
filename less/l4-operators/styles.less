@@ -1,0 +1,93 @@
+/*
+ * LESS Variables are defined with an @ character
+ * and can have different kinds of data types:
+ *  color, string, boolean, multi-value
+ */
+
+//color variables
+@wisteria: #8e44ad;                          // hex color value
+@nephretis: #27ae60;                         // hex color value
+@midnight_blue: #2c3e50;                     // hex color value
+
+@black: #000;                                // named color value
+
+//change the value of this variable to change the template color
+@template_color: @wisteria;
+
+//font type variables
+@fontSize: 24px;                             // numeric value
+
+//layout variables
+@border: 2px solid @template_color;                   // multi-value variable
+@padding: 15px;
+@margin: 10px;
+
+
+//content variable
+@stringVar: " - on Codepen";                 // string variable
+
+.commonRules {
+  border: @border;
+  text-align: center;
+  .border-radius(10px);
+}
+
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -o-border-radius: @radius;
+  -ms-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.clearfix {
+  clear: both;
+}
+
+header {
+  font-size: @fontSize*2;
+  background: lighten(@template_color, 40%);
+  .commonRules;
+
+
+
+  h1 {
+    color: @template_color;
+
+    &:after {
+      content: @stringVar;
+      color: darken(@template_color, 20%);
+    }
+  }
+}
+
+.container {
+  margin: @margin+30 auto;
+  width: 960px;
+
+  #p1,
+  #p2 {
+    padding: 0 @padding+10;
+    width: 430/960*100%;
+    float: left;
+    text-align: justify;
+
+    a {
+      color: @wisteria;
+      text-decoration: none;
+
+      &:hover {
+        color: darken(@template_color,20%);
+      }
+    }
+  }
+}
+
+footer {
+  .commonRules;
+  .clearfix;
+
+  p {
+    color: @template_color;
+  }
+}
