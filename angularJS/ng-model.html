@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p {
+            height: 100px;
+            width: 300px;
+            border: 2px solid yellow;
+        }
+    </style>
+</head>
+<body ng-app = "app">
+<div ng-controller="firstCtrl" style="border:2px solid #E75D5C; padding:5px;">
+    <textarea ng-model="content" cols="30" rows="10"></textarea>
+    <p>{{content}}</p>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script>
+    angular.module('app', [])
+        .controller("firstCtrl", function ($scope) {
+        $scope.content = "";
+    });
+</script>
+</body>
+</html>

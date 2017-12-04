@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p {
+            height: 100px;
+            width: 300px;
+            border: 2px solid yellow;
+        }
+        td, th {
+            border: 1px solid #ccc;
+            text-align: center;
+            padding: 5px;
+        }
+        th {
+            background: lightblue;
+        }
+    </style>
+</head>
+<body ng-app = "app">
+<!--<div ng-controller="firstCtrl" style="border:2px solid #E75D5C; padding:5px;"></div>-->
+<div ng-controller="Ctrl as ctrl">
+    <table>
+        <thead>
+        <th>index</th>
+        <th>Book Name</th>
+        <th>Author</th>
+        <th>Rating</th>
+        </thead>
+        <tbody>
+        <td>-1</td>
+        <td>The Shining</td>
+        <td>
+            <a href="https://www.goodreads.com/author/show/3389.Stephen_King">
+                Stephen King
+            </a>
+        </td>
+        <td>4.13</td>
+        <tr ng-repeat = "e in books">
+            <td>{{$index}}</td>
+            <td>{{e.name}}</td>
+            <td>
+                <a href="{{e.url}}" target="_blank">
+                    {{e.authorName}}
+                </a>
+            </td>
+            <td>{{e.rating}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script>
+    angular.module('app', [])
+        .controller("Ctrl", Ctrl)
+        .service('Books',Books)
+        .service('Authors',Authors);
+
+    function Ctrl(Books, Authors,$scope) {
+        var books = Books.list();
+        var authors = Authors.list();
+        console.log('books',books);
+        console.log('authors',authors);
+
+        books.forEach(function (book) {
+            var result = authors.filter(function (author) {
+                return author.id === book.authorId;
+            })
+            book.authorName = (result[0] !== undefined) ? result[0].name : null;
+            book.url = (result[0] !== undefined) ? result[0].url : null;
+        })
+        console.log('newBook',books);
+        $scope.books = books;
+
+    }
+    function Authors() {
+        var authors = [
+            {
+                id: 1,
+                name: 'Jane Austen',
+                url: 'https://www.goodreads.com/author/show/1265.Jane_Austen'
+            },
+            {
+                id: 2,
+                name: 'F. Scott Fitzgerald',
+                url: 'https://www.goodreads.com/author/show/3190.F_Scott_Fitzgerald'
+            },
+            {
+                id: 3,
+                name: 'Harper Lee',
+                url: 'https://www.goodreads.com/author/show/1825.Harper_Lee'
+            },
+            {
+                id: 4,
+                name: 'George Orwell',
+                url: 'https://www.goodreads.com/author/show/3706.George_Orwell'
+            },
+        ];
+        this.list = function() {
+            return authors;
+        }
+    }
+
+    function Books() {
+        var books = [
+            {
+                id: 4,
+                name: '1984',
+                authorId: 4,
+                rating: 4.11
+            },
+            {
+                id: 2,
+                name: 'Pride and Prejudice',
+                authorId: 1,
+                rating: 4.23
+            },
+            {
+                id: 3,
+                name: 'Sense and Sensibility',
+                authorId: 1,
+                rating: 4.04
+            },
+            {
+                id: 5,
+                name: 'Animal Farm',
+                authorId: 4,
+                rating: 3.81
+            },
+            {
+                id: 1,
+                name: 'The Great Gatsby',
+                authorId: 2,
+                rating: 3.86
+            },
+        ];
+        this.list = function() {
+            return books;
+        }
+    }
+</script>
+</body>
+</html>

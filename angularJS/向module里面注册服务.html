@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p {
+            height: 100px;
+            width: 300px;
+            border: 2px solid yellow;
+        }
+    </style>
+</head>
+<body >
+<!--如果用angular.boostrap(document,["moduel1-name","module2-name"]);-->
+<!--就不用ng-app ="app" 在view的部分就行绑定-->
+<div ng-app = "app">
+    <div ng-controller="firstCtrl" style="border:2px solid #E75D5C; padding:5px;">
+        <ul>
+            <li ng-repeat="info in infos | ageFilter">
+                {{info.name}}
+                {{info.age}}
+                {{info.address}}
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div ng-app = "app1">
+    <div ng-controller="firstCtrl" style="border:2px solid #E75D5C; padding:5px;">
+        <ul>
+            <li ng-repeat="info in infos | ageFilter">
+                {{info.name}}
+                {{info.age}}
+                {{info.address}}
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+<script>
+    angular.module('app', [],function ($provide,$controllerProvider,$filterProvider) {
+        $provide.service("data", function () {
+            return [{
+                name:'tony',
+                age:23,
+                address:'ca'
+            },{
+                name:'yi',
+                age:22,
+                address:'oh'
+            }]
+        });
+
+        $controllerProvider.register('firstCtrl',function ($scope,data) {
+            $scope.infos = data;
+        })
+
+        $filterProvider.register('ageFilter',function () {
+            return function (obj) {
+                console.log(obj);
+                var newObj = []
+                angular.forEach(obj,function (o) {
+                    if(o.age > 22) {
+                        newObj.push(o);
+                    }
+                })
+                return newObj;
+            }
+        })
+    })
+//    angular.bootstrap(document, ['app']);
+    angular.module('app1', [],function ($provide,$controllerProvider,$filterProvider) {
+        $provide.service("data", function () {
+            return [{
+                name:'tony',
+                age:23,
+                address:'ca'
+            },{
+                name:'yi',
+                age:22,
+                address:'oh'
+            }]
+        });
+
+        $controllerProvider.register('firstCtrl',function ($scope,data) {
+            $scope.infos = data;
+        })
+
+        $filterProvider.register('ageFilter',function () {
+            return function (obj) {
+                console.log(obj);
+                var newObj = []
+                angular.forEach(obj,function (o) {
+                    if(o.age > 22) {
+                        newObj.push(o);
+                    }
+                })
+                return newObj;
+            }
+        })
+    })
+    angular.bootstrap(document, ['app','app1']);
+
+
+</script>
+
+<script>
+    angular.module('app1', [],function ($provide,$controllerProvider,$filterProvider) {
+        $provide.service("data", function () {
+            return [{
+                name:'tony',
+                age:23,
+                address:'ca'
+            },{
+                name:'yi',
+                age:22,
+                address:'oh'
+            }]
+        });
+
+        $controllerProvider.register('firstCtrl',function ($scope,data) {
+            $scope.infos = data;
+        })
+
+        $filterProvider.register('ageFilter',function () {
+            return function (obj) {
+                console.log(obj);
+                var newObj = []
+                angular.forEach(obj,function (o) {
+                    if(o.age > 22) {
+                        newObj.push(o);
+                    }
+                })
+                return newObj;
+            }
+        })
+    })
+//    angular.bootstrap(document, ['app','app1']);
+
+</script>
+<!--<script>-->
+    <!--Angular.boostrap(document,["app","app1"])-->
+<!--</script>-->
+</body>
+</html>

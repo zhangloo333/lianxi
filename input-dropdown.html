@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+        input {
+            border: 2px solid black;
+        }
+        li {
+            border: 1px solid gainsboro;
+        }
+
+        #content {
+            display: none;
+            border: 2px solid black;
+            width: 127px;
+
+        }
+    </style>
+</head>
+<body>
+<section>
+         <ul id="warrap">
+             <input id="input1" type="text" onkeyup="add()" onblur="rm()">
+             <div id="content">
+                 <li>opt1</li>
+                 <li>opt2</li>
+                 <li>opt3</li>
+                 <li>asd</li>
+             </div>
+         </ul>
+</section>
+<script>
+    var input1 = document.getElementById('warrap');
+    input1.addEventListener("mouseenter",function (e) {
+        console.log(document.getElementById("content").style.display);
+        document.getElementById("content").style.display = "block";
+    });
+
+    input1.addEventListener("mouseleave",function (e) {
+        console.log(document.getElementById("content").style.display);
+        document.getElementById("content").style.display = "none";
+    });
+    function rm() {
+        let t = document.getElementById("content");
+        for(let i = t.childNodes.length-1; i> 0; i--) {
+            t.removeChild(t.childNodes[i]);
+        }
+    }
+
+    // input some to change content;
+    function typeHead() {
+        const storage = ["dog", "cat", "category", "pig", "cte"];
+        let tar = document.getElementById("input1").value;
+        let out = storage.filter(e=>e.indexOf(tar) === 0);
+        return out;
+    }
+
+    function add() {
+        let t = document.getElementById("content");
+        rm();
+        var out = typeHead();
+        console.log('this is out',out);
+        out.forEach((e)=> {
+            console.log('this is e',e);
+            let node  = document.createElement("li")
+                node.innerText = e;
+                t.appendChild(node);
+        })
+
+    }
+
+
+
+</script>
+</body>
+</html>

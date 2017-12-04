@@ -15,10 +15,19 @@ function add() {
     for (var i = 0; i < arguments.length; i++) {
         out += parseInt(arguments[i]);
     }
-
     return out;
 }
 
 var sum = curring(add);
 
 console.log(sum(1)(4)(6)());
+
+function sum2(a) {
+    return  function (b) {
+        return function (c) {
+            return a+ b+c;
+        }
+    }
+}
+
+console.log(sum2(1)(2)(3));

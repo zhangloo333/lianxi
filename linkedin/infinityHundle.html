@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #post{
+            width: 300px;
+            height:300px;
+            /*overflow: scroll;*/
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="onscoll">
+        <ul id="post" onscroll="infinity()">
+            <li>abc</li>
+            <li>dec</li>
+            <li>ccc</li>
+            <li>eee</li>
+            <li>abc</li>
+            <li>dec</li>
+            <li>ccc</li>
+            <li>eee</li> <li>abc</li>
+            <li>dec</li>
+            <li>ccc</li>
+            <li>eee</li> <li>abc</li>
+            <li>dec</li>
+            <li>ccc</li>
+            <li>eee</li> <li>abc</li>
+            <li>dec</li>
+            <li>ccc</li>
+            <li>eee</li> <li>abc</li>
+            <li>dec</li>
+            <li>ccc</li>
+            <li>eee</li> <li>abc</li>
+            <li>dec</li>
+
+        </ul>
+    </div>
+
+    <script>
+
+//        window.onload = function () {
+//            window.onscroll=function(){
+//                console.log('onscroll');
+//                var target = document.getElementById("post");
+//                var child = ["eac","aad","ccs","aed","cdd"];
+//                child.forEach(function (e) {
+//                    var element = document.createElement("li");
+//                    element.innerText = e;
+//                    target.appendChild(element);
+//                })
+//
+//            }
+//        }
+
+
+
+
+// 更复杂的
+    window.onload = function () {
+        window.onscroll=function(){
+            console.log('onscroll');
+            var parent = document.getElementById("post");
+            var childrens = parent.children;
+            var lastChildren = childrens[childrens.length-1];
+            var lastchildH = lastChildren.offsetTop + Math.floor(lastChildren.offsetHeight/2);
+            var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;//注意解决兼容性
+            console.log('scrollTop',scrollTop);
+            var documentH=document.documentElement.clientHeight;//页面高度
+            console.log('documentH',documentH);
+            if(lastchildH < scrollTop+documentH) {
+                var child = [];
+                for(var i = 0; i < 5; i++) {
+                    child.push(Math.round(Math.random()*100));
+                }
+                child.forEach(function (e) {
+                    var element = document.createElement("li");
+                    element.innerText = e;
+                    parent.appendChild(element);
+                })
+            }
+        }
+    }
+    </script>
+</body>
+</html>

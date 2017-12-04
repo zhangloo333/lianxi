@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .feild {
+            margin-top: 20px;
+            border: 2px solid red;
+            padding-bottom:10px ;
+        }
+    </style>
+</head>
+<body ng-app = "app">
+<div ng-controller="firstCtrl">
+    <di>
+        <lee></lee>
+    </di>
+</div>
+<p></p>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script>
+    angular.module('app', [])
+        .controller("firstCtrl", function ($scope) {
+            $scope.users = [
+                {
+                    id:10,
+                    name:'lee'
+                },
+                {
+                    id:20,
+                    name:'yi'
+                }
+            ];
+        })
+        .directive('lee',function () {
+            return{
+                restrict:'ECA',
+                replace: true,
+                template:'<div><p>this is lee </p><input type="text"></div>',
+                compile: function () {
+                    console.log('this is compile');
+                }
+            }
+        })
+
+</script>
+</body>
+</html>

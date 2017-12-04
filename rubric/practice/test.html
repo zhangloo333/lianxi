@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id = "n22" class="n1 n2 n3"></div>
+<script>
+    function vaidatClassName(className, root) {
+        const res = [];
+        function validate(node) {
+            if(node.classList && node.classList.contains(className)) {
+                res.push(node);
+            }
+
+            for(let i = 0; i < node.childNodes.length; i++) {
+                validate(node.childNodes[i]);
+            }
+        }
+
+        validate(root);
+        return res;
+    }
+
+</script>
+</body>
+</html>

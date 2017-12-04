@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p {
+            height: 100px;
+            width: 300px;
+            border: 2px solid yellow;
+        }
+    </style>
+</head>
+<body ng-app = "app">
+<div ng-controller="firstCtrl" style="border:2px solid #E75D5C; padding:5px;">
+    <p>引用类型-直接从faction拿完整的object：{{message.message}}</p>
+    <input type="text" ng-model="message.message">
+    <p>基本类型，从faction的object拿到具体的数据{{mes}}</p>
+    <input type="text" ng-model="mes">
+</div>
+
+
+<div ng-controller="secondCtrl" style="border:2px solid #E75D5C; padding:5px;">
+    <p>引用类型-直接从faction拿完整的object：{{Data.message}}</p>
+    <br />
+    <p>基本类型，从faction的object拿到具体的数据{{mes2}}</p>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script>
+    angular.module('app', [])
+        .controller("firstCtrl", function ($scope,Data) {
+            // 能同时更改数据，必须是引用类型，如果是 基本类型就不能再两个controller里面更改
+            $scope.message = Data;
+            $scope.mes = Data.message;
+        })
+        .controller('secondCtrl',function ($scope,Data) {
+            $scope.Data = Data;
+            $scope.mes2 = Data.message;
+        })
+        .factory('Data', function () {
+            return {
+                message:'share data'
+            }
+        })
+
+</script>
+</body>
+</html>
