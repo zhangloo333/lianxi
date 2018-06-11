@@ -13,4 +13,4 @@ console.log(c)
 
 //方法2
 
-function getUrl
+// function getUrl

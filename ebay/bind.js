@@ -10,3 +10,10 @@ var obj = {
 };
 //怎么让 getX 输出 22， 其实就是用 bind(this),因为this是在global里面所有这个this指的是 global的this
 console.log(obj.getX.bind(this)()) //输出 22 如果不绑定this 输出的是 123
+
+//输出 125
+console.log(obj.getX());
+
+//输出功22
+this.x = 22;
+console.log(obj.getX.bind(this)());

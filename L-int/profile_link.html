@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="content"></div>
+<script>
+
+    (function () {
+    //For the given array of members:
+    var members = [
+        {
+            name: 'Bill Denbrough',
+            id: 1
+        },
+        {
+            name: 'Ben Hanscom',
+            id: 2
+        },
+        {
+            name: 'Mike Hanlon',
+            id: 3
+        },
+        {
+            name: 'Richie Tozier',
+            id: 4
+        },
+        {
+            name: 'Beverly Marsh',
+            id: 5
+        },
+        {
+            name: 'Eddie Kaspbrak',
+            id: 6
+        },
+        {
+            name: 'Stan Uris',
+            id: 7
+        }
+    ];
+
+    let hrefUrl = id => `profile.jsp?id=${id}`;
+
+    let liEntity = document.createDocumentFragment();
+        members.forEach((element, index) => {
+            console.log(index);
+            let nodeLiTag = document.createElement("li");
+            let nodeAtag = document.createElement('a');
+            nodeAtag.href ="#";
+            nodeAtag.innerHTML=element.name;
+            nodeAtag.addEventListener("click", fetchInfoEvent.bind(undefined,index));
+            nodeLiTag.appendChild(nodeAtag);
+            liEntity.appendChild(nodeLiTag);
+        })
+        document.querySelector("#content").appendChild(liEntity);
+//        document.querySelector("#content").addEventListener("click", function (e) {
+//            console.log(e.target);
+//            const id = e.target.id;
+//            window.location.href = hrefUrl(id);
+//        })
+        function fetchInfoEvent(id) {
+//            const id = this.id;
+//            console.log(id);
+            window.location.href = hrefUrl(id);
+        }
+    })()
+</script>
+</body>
+</html>

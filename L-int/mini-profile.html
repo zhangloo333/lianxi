@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .profile {
+            width: 600px;
+            background: yellow;
+            position: relative;
+            top: 200px;
+            left: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="newwork-updates">
+        <a href="#" class="profile" data-member-id="12345" datatype="person">Steve Johnson</a>
+    </div>
+
+    <!--<div id="miniprofile">-->
+        <!--<h4></h4>-->
+        <!--<p></p>-->
+    <!--</div>-->
+
+<script>
+    (function () {
+        const json = '{"title":"xiaoming", "body":"this is his life"}';
+        const personInfo = JSON.parse(json);
+
+        let miniProfileCache = {};
+        let baseMiniprofileEndpoint = '/miniprofile?id=';
+
+
+        const displayMiniprofile = (anchor, content) => {
+
+            const region = anchor.getBoundingClientRect();
+            console.log('region',region);
+
+            let miniprofile = document.querySelector("#miniprofile");
+            if(!miniprofile) {
+                miniprofile = document.createElement("div");
+                miniprofile.id = 'miniprofile';
+                miniprofile.style.display = 'block';
+                miniprofile.style.position = 'absolute';
+                miniprofile.style.background = 'blue';
+
+                let tileTag = document.createElement("h4");
+                miniprofile.appendChild(tileTag);
+                let descriptionTag = document.createElement("p");
+                miniprofile.appendChild(descriptionTag);
+
+                document.body.appendChild(miniprofile) ;
+            }
+            document.querySelector("#miniprofile h4").innerHTML = content.title;
+            document.querySelector("#miniprofile p").innerHTML = content.body;
+
+            miniprofile.style.top = region.top - 100 + "px";
+            miniprofile.style.left = region.left + 10 + "px";
+            miniprofile.style.display = "block";
+            console.log('style', miniprofile.style.top, miniprofile.style.left);
+        }
+
+        const showMiniprofile = (e) => {
+            const target = e.target;
+            if(target) {
+                const memberID = target.getAttribute("data-member-id");
+
+                let miniprofileCotent = miniProfileCache[memberID];
+
+                if(memberID && memberID !== "") {
+                    if(miniprofileCotent) {
+                        displayMiniprofile(target, miniprofileCotent);
+                        console.log("enter");
+                    } else {
+//                        const info = await $.ajax(`baseMiniprofileEndpoint/${memberID}`, {
+//                            method: 'GET',
+//                        } );
+
+                        const info = personInfo
+                        miniProfileCache[memberID] = info;
+                        console.log('target',target, 'miniprofileCount',miniProfileCache[memberID]);
+                        displayMiniprofile(target, miniProfileCache[memberID]);
+                    }
+                }
+            }
+        }
+
+        const hideMiniprofile = function (evt) {
+            const miniprofile = document.querySelector("#miniprofile");
+            if(miniprofile) {
+                miniprofile.style.display = "none";
+            }
+        }
+
+        document.querySelector(".profile").addEventListener("mouseover",showMiniprofile);
+        document.querySelector(".profile").addEventListener("mouseout",hideMiniprofile);
+    })()
+
+
+</script>
+</body>
+</html>

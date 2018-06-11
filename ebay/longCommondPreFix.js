@@ -19,7 +19,7 @@
 
 var longestCommonPrefix = function(strs) {
     var preFix = "";
-    if(!strs || strs.length == 0) return preFix;
+    if(!strs) return preFix;
 
     var lenStrs = strs.length;
     var lenItem = strs[0].length;
@@ -35,3 +35,26 @@ var longestCommonPrefix = function(strs) {
     }
     return preFix;
 };
+
+const long = (strs) => {
+    let prefix = "";
+    if(!strs) return prefix;
+
+    const strsLen = strs.length;
+    const wordlen = strs[0].length;
+
+    for(let i = 0; i < wordlen; i ++) {
+        let curChar = strs[0][i];
+        for (let j = 0; j < strsLen; j++) {
+            if (i > strs[j].length || strs[j][i] !== curChar) {
+                return prefix
+            }
+        }
+        prefix += curChar;
+    }
+}
+
+const data = ['apple', 'ape', 'april'];
+
+
+console.log(long(data));

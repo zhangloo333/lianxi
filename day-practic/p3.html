@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<header>
+    <meta charset="UTF-8">
+    <title>this is for what</title>
+    <style>
+        .nav {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            position:fixed;
+
+            background:red;
+            left:10px;
+            top:100px;
+
+            overflow: scroll;
+        }
+
+        .nav li {
+            width: 50px;
+            height: 30px;
+        }
+
+    </style>
+</header>
+<body>
+<nav class="nav">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</nav>
+
+<script>
+    const child = document.getElementsByClassName("nav")[0].children;
+
+    for(let i = 0; i < child.length; i++) {
+        child[i].addEventListener("click", printt.bind(this,i));
+    }
+
+    function printt(ii) {
+        console.log(ii);
+    }
+</script>
+</body>
+</html>
